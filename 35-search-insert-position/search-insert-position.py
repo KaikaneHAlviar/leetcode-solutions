@@ -1,6 +1,6 @@
 class Solution:
     def searchInsert(self, nums: list[int], target: int) -> int:
-        result = len(nums)
+        result = 0
 
         try:
             result = nums.index(target)
