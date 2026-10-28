@@ -1,11 +1,6 @@
 class Solution:
 
-    def romanToInt(self, s: str) -> int:
-
-        result = 0
-        behind = 0
-
-        convert = {
+    convert = {
         'I':1,
         'V':5,
         'X':10,
@@ -15,17 +10,22 @@ class Solution:
         'M':1000
     }
 
+    def romanToInt(self, s: str) -> int:
+
+        result = 0
+        behind = 0
+
         for index, char in enumerate(s):
 
             if index != 0:
-                behind = convert[s[index - 1]]
+                behind = self.convert[s[index - 1]]
             
             print(behind)
             # if the number "behind" index is ever less than number, subtract by x2 of less number
-            if convert[char] > behind:
+            if self.convert[char] > behind:
                 result -= behind * 2
 
-            result += convert[char]
+            result += self.convert[char]
         
         return result
 
