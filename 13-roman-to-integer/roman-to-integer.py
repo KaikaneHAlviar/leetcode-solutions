@@ -15,17 +15,16 @@ class Solution:
         result = 0
         behind = 0
 
-        for index, char in enumerate(s):
+        for char in s:
 
-            if index != 0:
-                behind = self.convert[s[index - 1]]
-            
-            print(behind)
-            # if the number "behind" index is ever less than number, subtract by x2 of less number
-            if self.convert[char] > behind:
+            current = self.convert[char]
+
+            if current > behind:
                 result -= behind * 2
 
-            result += self.convert[char]
+            result += current
+
+            behind = current
         
         return result
 
